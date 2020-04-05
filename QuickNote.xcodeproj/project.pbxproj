@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,10 @@
 		20880AAD2438F3EA007A4BDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20880AAC2438F3EA007A4BDE /* ViewController.swift */; };
 		20880AAF2438F3EB007A4BDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20880AAE2438F3EB007A4BDE /* Assets.xcassets */; };
 		20880AB22438F3EB007A4BDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20880AB02438F3EB007A4BDE /* Main.storyboard */; };
+		20880ABD24390542007A4BDE /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20880ABC24390542007A4BDE /* EventMonitor.swift */; };
+		20880ABF24390B19007A4BDE /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20880ABE24390B19007A4BDE /* Notes.swift */; };
+		20880AC1243915F7007A4BDE /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20880AC0243915F7007A4BDE /* PlaceholderTextView.swift */; };
+		20880AC4243950A0007A4BDE /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 20880AC3243950A0007A4BDE /* Down */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,9 @@
 		20880AB12438F3EB007A4BDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20880AB32438F3EB007A4BDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20880AB42438F3EB007A4BDE /* QuickNote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickNote.entitlements; sourceTree = "<group>"; };
+		20880ABC24390542007A4BDE /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		20880ABE24390B19007A4BDE /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		20880AC0243915F7007A4BDE /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20880AC4243950A0007A4BDE /* Down in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,10 +63,13 @@
 			children = (
 				20880AAA2438F3EA007A4BDE /* AppDelegate.swift */,
 				20880AAC2438F3EA007A4BDE /* ViewController.swift */,
+				20880AC0243915F7007A4BDE /* PlaceholderTextView.swift */,
+				20880ABE24390B19007A4BDE /* Notes.swift */,
 				20880AAE2438F3EB007A4BDE /* Assets.xcassets */,
 				20880AB02438F3EB007A4BDE /* Main.storyboard */,
 				20880AB32438F3EB007A4BDE /* Info.plist */,
 				20880AB42438F3EB007A4BDE /* QuickNote.entitlements */,
+				20880ABC24390542007A4BDE /* EventMonitor.swift */,
 			);
 			path = QuickNote;
 			sourceTree = "<group>";
@@ -79,6 +90,9 @@
 			dependencies = (
 			);
 			name = QuickNote;
+			packageProductDependencies = (
+				20880AC3243950A0007A4BDE /* Down */,
+			);
 			productName = QuickNote;
 			productReference = 20880AA72438F3EA007A4BDE /* QuickNote.app */;
 			productType = "com.apple.product-type.application";
@@ -107,6 +121,9 @@
 				Base,
 			);
 			mainGroup = 20880A9E2438F3EA007A4BDE;
+			packageReferences = (
+				20880AC2243950A0007A4BDE /* XCRemoteSwiftPackageReference "Down" */,
+			);
 			productRefGroup = 20880AA82438F3EA007A4BDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,8 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20880ABD24390542007A4BDE /* EventMonitor.swift in Sources */,
 				20880AAD2438F3EA007A4BDE /* ViewController.swift in Sources */,
 				20880AAB2438F3EA007A4BDE /* AppDelegate.swift in Sources */,
+				20880ABF24390B19007A4BDE /* Notes.swift in Sources */,
+				20880AC1243915F7007A4BDE /* PlaceholderTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XXYXWGAW9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = QuickNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,7 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XXYXWGAW9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = QuickNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -327,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		20880AC2243950A0007A4BDE /* XCRemoteSwiftPackageReference "Down" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iwasrobbed/Down";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		20880AC3243950A0007A4BDE /* Down */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20880AC2243950A0007A4BDE /* XCRemoteSwiftPackageReference "Down" */;
+			productName = Down;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20880A9F2438F3EA007A4BDE /* Project object */;
 }
