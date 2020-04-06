@@ -41,28 +41,36 @@ class Notes {
         }
     }
     
-    func createNote(title: String, body: String, folder: String = "Notes") {
-        let down = Down(markdownString: body)
-        let html = try! down.toHTML(DownOptions(arrayLiteral: [.hardBreaks]))
-        
-        let source = """
-        tell application "Notes"
-            activate
-            tell default account to tell folder "\(folder)"
-                make new note with properties {name:"\(title)", body:"\(html)"}
-                show note 1
+    func createNote(title: String, body: String, folder: String = "Notes") throws {
+        do {
+            let escapedBody = body
+                .replacingOccurrences(of: "`", with: "\\`")
+                .replacingOccurrences(of: "'", with: "\\'")
+                .replacingOccurrences(of: "\"", with: "\\\"")
+            let down = Down(markdownString: escapedBody)
+            let html = try down.toHTML([.hardBreaks, .smart, .validateUTF8])
+            
+            let source = """
+            tell application "Notes"
+                activate
+                tell default account to tell folder "\(folder)"
+                    make new note with properties {name:"\(title)", body:"\(html)"}
+                    show note 1
+                end tell
             end tell
-        end tell
-        """
-        
-        let script = NSAppleScript(source: source)!
-        var error: NSDictionary?
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            script.executeAndReturnError(&error)
-            if let error = error {
-                print(error)
+            """
+            
+            let script = NSAppleScript(source: source)!
+            var error: NSDictionary?
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                script.executeAndReturnError(&error)
+                if let error = error {
+                    print(error)
+                }
             }
+        } catch let error {
+            throw error
         }
     }
     
