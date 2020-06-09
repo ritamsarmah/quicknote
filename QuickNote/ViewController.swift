@@ -46,8 +46,7 @@ class ViewController: NSViewController {
         bodyTextView.placeholderAttributedString = NSAttributedString(string: "Type something...", attributes: [
             NSAttributedString.Key.font : defaultFont,
             NSAttributedString.Key.foregroundColor : NSColor.gray
-        ])
-        
+        ])     
     }
     
     override func viewDidAppear() {
@@ -73,7 +72,6 @@ class ViewController: NSViewController {
     @IBAction func cancel(_ sender: NSButton) {
         appDelegate.closePopover(sender: self)
         resetNote()
-        
     }
     
     @IBAction func save(_ sender: NSButton) {
